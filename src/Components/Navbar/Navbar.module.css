@@ -1,4 +1,4 @@
-/* Regular Navbar */
+/* Regular Navbar for larger screens */
 .navbar {
     width: 100%;
     max-width: 1400px;
@@ -64,11 +64,11 @@
     color: #ffffff;
   }
   
-  /* Hamburger Menu Button */
+  /* Hamburger Menu Button and Mobile Menu for smaller screens */
   @media (max-width: 800px) {
     /* Hide Regular Navbar */
-    .navLinks {
-      display: none; /* Hide the regular navbar links */
+    .navbar {
+      display: none;
     }
   
     /* Hamburger Menu Button */
@@ -78,7 +78,7 @@
       cursor: pointer;
       padding: 10px;
       font-size: 24px;
-      color: #000000; /* White color for the hamburger icon */
+      color: #ffffff; /* White color for the hamburger icon */
     }
   
     /* Mobile Menu */
@@ -136,8 +136,17 @@
     .mobileMenu a:hover {
       color: #f0f0f0;
     }
-    .register{
-        background-color: #000000;
-        color: #ffffff;    }
+  
+    .register {
+      background-color: #000000;
+      color: #ffffff;
+    }
+  }
+  
+  /* Hide Mobile Menu on larger screens */
+  @media (min-width: 801px) {
+    .hamburger, .mobileMenu {
+      display: none;
+    }
   }
   
