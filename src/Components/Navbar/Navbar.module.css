@@ -1,0 +1,77 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    width: 100%; /* Adjust this to control the overall width of the navbar */
+    max-width: 1400px; /* Maximum width for large screens */
+    margin: 0 auto; /* Centers the navbar horizontally */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 50px;
+    position: relative;
+    background-color: #000000;
+}
+
+.logo {
+    width: 150px;
+}
+
+/* Navbar links */
+.navLinks {
+    list-style-type: none;
+    display: flex;
+    gap: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.navLink {
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.navLink:hover {
+    color: #f0f0f0;
+}
+
+/* Auth buttons */
+.authButtons {
+    display: flex;
+    gap: 15px;
+    color: #e0e0e0;
+}
+
+.authButton {
+    cursor: pointer;
+    padding: 8px 20px;
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.register {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.authButton:hover {
+    background-color: #596470;
+    color: #ffffff;
+}
+
+.register:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+

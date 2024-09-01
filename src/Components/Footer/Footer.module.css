@@ -1,0 +1,84 @@
+/* Footer.module.css */
+
+/* Footer container styles */
+.footerContainer {
+  background-color: black;
+  color: white;
+  padding: 40px 20px;
+  margin-top: 100px;
+}
+
+/* Container for the sections in the footer */
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Individual section styling */
+.footerSection {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px 0;
+}
+
+/* Header styling within footer sections */
+.footerSectionTitle {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+/* Paragraphs and links within footer sections */
+.footerText,
+.footerLink {
+  margin: 5px 0;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* Link hover effect */
+.footerLink:hover {
+  text-decoration: underline;
+}
+
+/* Subscribe section styling */
+.subscribeSection {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Input field styling in the subscribe section */
+.subscribeInput {
+  margin-right: 10px;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+/* Email and phone link styling */
+.contactInfo {
+  display: block;
+  margin-top: 10px;
+}
+
+/* Unordered list styling */
+.footerList {
+  list-style: none;
+  padding: 0;
+}
+
+/* List item styling */
+.footerListItem {
+  margin: 5px 0;
+}
+
+/* Logo image styling */
+.footerLogo {
+  max-width: 50%; /* Adjust as needed */
+  margin-top: 10px;
+  margin-right: 10px;
+}

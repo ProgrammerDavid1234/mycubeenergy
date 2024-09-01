@@ -1,0 +1,122 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .contactContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000;
+    padding: 40px;
+    margin: 5% auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .contactContent {
+    display: flex;
+    flex-direction: row; /* Ensure form and image are side by side */
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the start of the container */
+  }
+  
+  .contactFormContainer {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .contactHeader {
+    font-family: Karla, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 46.76px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+  }
+  
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .contactInput, .contactTextarea {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .contactInput:focus, .contactTextarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+  }
+  
+  /* Styles for the textarea input field */
+  .contactTextarea {
+    height: 150px; /* Adjust the height as needed */
+    resize: vertical; /* Allow resizing only vertically */
+  }
+  
+  .contactButton {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    border: 2px solid white;
+    background-color: #000000;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contactButton:hover {
+    background-color: #ffffff;
+    color: black;
+  }
+  
+  .contactImageContainer {
+    flex: 1;
+    max-width: 50%; /* Adjust based on the desired image size */
+    display: flex;
+    justify-content: center; /* Center image horizontally within container */
+  }
+  
+  .contactImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .contactContent {
+      flex-direction: column;
+    }
+  
+    .contactFormContainer, .contactImageContainer {
+      max-width: 100%;
+      margin: 0;
+    }
+  
+    .contactImage {
+      margin-top: 20px; /* Add some space between the form and the image */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .contactHeader {
+      font-size: 1.5rem;
+    }
+  
+    .contactInput, .contactButton {
+      font-size: 0.9rem;
+    }
+  }
+  

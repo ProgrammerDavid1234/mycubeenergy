@@ -1,0 +1,82 @@
+/* Faq.module.css */
+
+/* Global reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* FAQ section styles */
+  .faqSection {
+    background-color: black;
+    color: white;
+    height: 50vh;
+    max-height: 100%;
+  }
+  
+  /* Text container styles */
+  .textContainer {
+    padding-left: 7%;
+  }
+  
+  .textTitle {
+    font-family: Karla, sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 44.42px;
+    text-align: left;
+  }
+  
+  .textParagraph {
+    font-family: Karla, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 17.54px;
+    text-align: left;
+  }
+  
+  /* FAQ items styles */
+  .faqList {
+    padding: 20px;
+    padding-left: 5%;
+    padding-right: 3%;
+  }
+  
+  .faqItem {
+    margin-bottom: 10px;
+  }
+  
+  .faqQuestion {
+    background-color: #fff6f6;
+    color: rgb(15, 15, 15);
+    border: 1px solid black;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .faqQuestion img {
+    width: 20px; /* Adjust as needed */
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .faqQuestion:hover {
+    background-color: #f3e8e8;
+  }
+  
+  .faqAnswer {
+    padding: 10px;
+    background-color: #f9f9f9;
+    color: black;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+  

@@ -1,0 +1,114 @@
+/* Transactions.module.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .transactionsContainer {
+    margin-left: 250px; /* To account for the fixed sidebar width */
+    padding: 20px;
+    height: 100vh;
+    background-color: #f9f9f9; /* Light background color for better contrast */
+  }
+  
+  .searchHeader {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #ffffff; /* White background for the header */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+  }
+  
+  .searchHeader h4 {
+    font-family: Karla, sans-serif; /* Ensure font-family fallback */
+    font-size: 24px; /* Consistent header size */
+    font-weight: bold;
+    color: #333333; /* Darker text for better readability */
+  }
+  
+  .inputContainer {
+    display: flex;
+    gap: 20px; /* Space between input groups */
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px; /* Adjusted padding for better spacing */
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .inputLabel {
+    margin-bottom: 8px; /* Space between label and input */
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .dateInput {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 300px; /* Reduced width for better spacing */
+    box-shadow: 0px 4px 8px rgba(143, 71, 71, 0.1); /* Box shadow for the input fields */
+  }
+  
+  .searchButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px; /* Space above the button */
+    padding-right: 30px; /* Adjust padding to match design */
+  }
+  
+  .searchButton {
+    padding: 10px 20px; /* Adjust padding for a balanced button */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .searchButton:hover {
+    background-color: #555;
+  }
+  
+  .orText {
+    display: flex;
+    justify-content: center; /* Centered '-OR-' text */
+    margin-top: 20px; /* Space above the '-OR-' text */
+    color: #666; /* Lighter color for the '-OR-' text */
+  }
+  
+  .transactions {
+    margin-top: 30px; /* Space above the transactions section */
+  }
+  
+  .tabletrans {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tabletrans th, .tabletrans td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* Light border for table rows */
+  }
+  
+  .tabletrans th {
+    background-color: #f4f4f4; /* Light background for table headers */
+    color: #333;
+  }
+  
+  .tabletrans tr:hover {
+    background-color: #f1f1f1; /* Highlight row on hover */
+  }
+  

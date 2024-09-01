@@ -1,0 +1,58 @@
+.cardContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px; /* Space between cards */
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+  
+  .card {
+    flex: 1;
+    min-width: 280px; /* Minimum width for each card */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Ensures content stacks vertically */
+    align-items: center; /* Centers content horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box-shadow */
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px; /* Space between image and text */
+  }
+  .card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .card p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 768px) {
+    .cardContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .card {
+      width: 100%; /* Full width on small screens */
+      max-width: 500px; /* Max width for each card */
+      margin-bottom: 20px; /* Space between cards on small screens */
+    }
+  
+    .card:last-child {
+      margin-bottom: 0; /* Remove margin from the last card */
+    }
+  }
+  

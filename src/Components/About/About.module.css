@@ -1,0 +1,68 @@
+/* About.module.css */
+
+/* Global reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* About section styles */
+  .aboutSection {
+    background-color: black;
+    color: white;
+    height: 50vh; /* 50% of the viewport height */
+    max-height: 100%; /* Ensure it doesn't exceed 100% of the screen */
+  }
+  
+  /* Text container styles */
+  .textContainer {
+    padding-left: 7%;
+  }
+  
+  .textTitle {
+    font-family: Karla;
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 44.42px;
+    text-align: left;
+  }
+  
+  .textParagraph {
+    font-family: Karla;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 17.54px;
+    text-align: left;
+  }
+  
+  /* About section 2 styles */
+  .aboutDetails {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Vertically align items */
+    justify-content: space-between; /* Space items evenly */
+    padding: 20px; /* Add padding around the section */
+    gap: 20px; /* Add space between the text and image */
+    padding-left: 7%;
+    padding-right: 3%;
+  }
+  
+  .detailsText {
+    flex: 1; /* Allows the text to take up remaining space */
+    font-size: 16px; /* Adjust font size as needed */
+    line-height: 1.5; /* Improve readability */
+    color: #030303; /* Text color */
+    max-width: 60%; /* Limit width of the text block */
+    overflow: hidden; /* Prevent text overflow */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .detailsImage {
+    width: 440px; /* Set a fixed width for the image */
+    height: 70vh; /* Maintain aspect ratio */
+    max-height: 100vh; /* Limit height to 50% of the viewport height */
+    object-fit: cover; /* Ensure the image covers the area */
+    opacity: 1; /* Set opacity to fully visible */
+  }
+  
