@@ -1,77 +1,143 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-}
-
+/* Regular Navbar */
 .navbar {
-    width: 100%; /* Adjust this to control the overall width of the navbar */
-    max-width: 1400px; /* Maximum width for large screens */
-    margin: 0 auto; /* Centers the navbar horizontally */
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 40px 50px;
     position: relative;
     background-color: #000000;
-}
-
-.logo {
+  }
+  
+  .logo {
     width: 150px;
-}
-
-/* Navbar links */
-.navLinks {
+  }
+  
+  /* Navbar Links */
+  .navLinks {
     list-style-type: none;
     display: flex;
     gap: 30px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.navLink {
+  }
+  
+  .navLink {
     color: #ffffff;
     font-weight: bold;
     transition: color 0.3s ease;
     text-decoration: none;
-}
-
-.navLink:hover {
+  }
+  
+  .navLink:hover {
     color: #f0f0f0;
-}
-
-/* Auth buttons */
-.authButtons {
+  }
+  
+  /* Auth Buttons */
+  .authButtons {
     display: flex;
     gap: 15px;
     color: #e0e0e0;
-}
-
-.authButton {
+  }
+  
+  .authButton {
     cursor: pointer;
     padding: 8px 20px;
     background-color: transparent;
     border: 2px solid #ffffff;
     transition: background-color 0.3s ease, color 0.3s ease;
     font-weight: bold;
-}
-
-.register {
+  }
+  
+  .register {
     background-color: #ffffff;
     color: #000000;
-}
-
-.authButton:hover {
+  }
+  
+  .authButton:hover {
     background-color: #596470;
     color: #ffffff;
-}
-
-.register:hover {
+  }
+  
+  .register:hover {
     background-color: #333333;
     color: #ffffff;
-}
-
+  }
+  
+  /* Hamburger Menu Button */
+  @media (max-width: 800px) {
+    /* Hide Regular Navbar */
+    .navLinks {
+      display: none; /* Hide the regular navbar links */
+    }
+  
+    /* Hamburger Menu Button */
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      font-size: 24px;
+      color: #000000; /* White color for the hamburger icon */
+    }
+  
+    /* Mobile Menu */
+    .mobileMenu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 250px;
+      height: 100vh;
+      background-color: #000000; /* Black background */
+      color: #ffffff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 1000;
+      transform: translateX(100%); /* Initially hide the menu off-screen */
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    /* Show the menu when active */
+    .mobileMenu.active {
+      transform: translateX(0); /* Slide in the menu when active */
+    }
+  
+    /* Close Button */
+    .closeButton {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 24px;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+  
+    /* Mobile Menu Links */
+    .mobileMenu ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .mobileMenu li {
+      margin-bottom: 15px;
+    }
+  
+    .mobileMenu a {
+      color: #ffffff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  
+    .mobileMenu a:hover {
+      color: #f0f0f0;
+    }
+    .register{
+        background-color: #000000;
+        color: #ffffff;    }
+  }
+  

@@ -39,20 +39,61 @@
   }
   
   /* Responsive Styles */
-  @media screen and (max-width: 768px) {
+/* Responsive Styles for Medium to Small Screens */
+@media screen and (max-width: 768px) {
     .cardContainer {
-      flex-direction: column;
-      align-items: center;
+      flex-direction: column; /* Stack cards vertically */
+      align-items: center; /* Center the cards horizontally */
+      padding-left: 20px; /* Reduce padding for smaller screens */
+      padding-right: 20px;
+      gap: 30px; /* Increase the gap between cards */
     }
   
     .card {
-      width: 100%; /* Full width on small screens */
-      max-width: 500px; /* Max width for each card */
-      margin-bottom: 20px; /* Space between cards on small screens */
+      width: 90%; /* Take up most of the screen width, with slight margins */
+      max-width: 400px; /* Max width to avoid too large cards */
+      margin-bottom: 20px; /* Space between stacked cards */
+      padding: 15px; /* Adjust padding for smaller screens */
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhance box-shadow for more depth */
     }
   
-    .card:last-child {
-      margin-bottom: 0; /* Remove margin from the last card */
+    .card img {
+      width: 100%; /* Ensure the image takes up full width of the card */
+      height: auto; /* Maintain aspect ratio */
+      margin-bottom: 15px; /* Space between image and content */
+    }
+  
+    .card h3 {
+      font-size: 1.4rem; /* Slightly reduce font size */
+      margin: 8px 0; /* Adjust margin for smaller screens */
+    }
+  
+    .card p {
+      font-size: 0.95rem; /* Slightly reduce font size for smaller screens */
+      color: #555; /* Slightly darker text color */
+    }
+  }
+  
+  /* Responsive Styles for Very Small Screens */
+  @media screen and (max-width: 480px) {
+    .cardContainer {
+      padding-left: 10px; /* Further reduce padding for very small screens */
+      padding-right: 10px;
+    }
+  
+    .card {
+      width: 100%; /* Full width on extra small screens */
+      max-width: 350px; /* Max width to prevent cards from being too large */
+      padding: 10px; /* Reduce padding for smaller screens */
+    }
+  
+    .card h3 {
+      font-size: 1.2rem; /* Further reduce font size */
+      margin: 5px 0; /* Adjust margin for better spacing */
+    }
+  
+    .card p {
+      font-size: 0.9rem; /* Smaller text size for extra small screens */
     }
   }
   

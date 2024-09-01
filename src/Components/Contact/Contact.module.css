@@ -110,13 +110,67 @@
     }
   }
   
-  @media screen and (max-width: 480px) {
-    .contactHeader {
-      font-size: 1.5rem;
+/* Responsive Styles for Medium to Small Screens */
+@media screen and (max-width: 768px) {
+    .contactContent {
+      flex-direction: column; /* Stack the form and image vertically */
+      align-items: center; /* Center the items horizontally */
+      text-align: center; /* Center text */
     }
   
-    .contactInput, .contactButton {
-      font-size: 0.9rem;
+    .contactFormContainer, .contactImageContainer {
+      max-width: 100%; /* Ensure containers take up full width */
+      margin: 0; /* Remove margins */
+      padding: 0 20px; /* Add padding to avoid edges */
+    }
+  
+    .contactImage {
+      margin-top: 20px; /* Add space between form and image */
+      max-width: 80%; /* Reduce the image size slightly for better balance */
+    }
+  
+    .contactHeader {
+      font-size: 2rem; /* Adjust the header size */
+      margin-bottom: 15px; /* Slightly reduce bottom margin */
+    }
+  
+    .contactButton {
+      padding: 10px; /* Adjust padding */
+      width: 100%; /* Make the button full width */
+    }
+  
+    .contactInput, .contactTextarea {
+      font-size: 1rem; /* Maintain consistent font size */
+      padding: 12px; /* Increase padding for better touch interaction */
+    }
+  }
+  
+  /* Responsive Styles for Very Small Screens */
+  @media screen and (max-width: 480px) {
+    .contactContainer {
+      padding: 20px; /* Reduce padding for small screens */
+      margin: 20px auto; /* Adjust margin to reduce excess space */
+    }
+  
+    .contactHeader {
+      font-size: 1.8rem; /* Slightly reduce font size */
+      line-height: 1.2; /* Adjust line height for better spacing */
+    }
+  
+    .contactInput, .contactTextarea {
+      font-size: 0.95rem; /* Slightly reduce font size */
+      padding: 10px; /* Further adjust padding */
+    }
+  
+    .contactButton {
+      font-size: 0.9rem; /* Slightly reduce button text size */
+      padding: 10px 12px; /* Adjust padding for smaller screens */
+      border-width: 1px; /* Slightly reduce border width */
+    }
+  
+    .contactImage {
+      max-width: 90%; /* Reduce image size for very small screens */
+      margin-top: 15px; /* Adjust margin for spacing */
     }
   }
   
