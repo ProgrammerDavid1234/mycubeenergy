@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import logo from '../Assets/logo.png'
 import styles from './Login.module.css'; // Import the CSS Module
 
 const Login = () => {
@@ -26,7 +27,7 @@ const Login = () => {
             localStorage.setItem('token', token);
             localStorage.setItem('user', JSON.stringify(user));
 
-            navigate('/home');
+            navigate('/');
         } catch (error) {
             setError('Login failed. Please check your credentials and try again.');
         } finally {
@@ -36,7 +37,7 @@ const Login = () => {
 
     return (
         <div className={styles.loginContainer}>
-            <div className={styles.left}></div>
+            <div className={styles.left}><img src={logo} alt="" /></div>
             <div className={styles.right}>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.inputContainer}>

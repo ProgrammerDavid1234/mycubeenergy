@@ -8,6 +8,8 @@ import SignUp from './Components/SignUp/SignUp';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Transactions from './Components/Transactions/Transactions';
 import Bills from './Components/Bills/BIlls';
+import Topupunits from './Components/Topupunits/Topupunit'
+import Topupwallet from './Components/Topupwallet/Topupwallet';
 
 function App() {
   return (
@@ -22,6 +24,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/bills" element={<Bills />} />
+          
+          <Route path="/topupunits" element={<Topupunits />} />
+          <Route path="/topupwallet" element={<Topupwallet />} />
+
 
 
 

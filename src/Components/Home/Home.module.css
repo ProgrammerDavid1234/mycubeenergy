@@ -83,7 +83,11 @@
   
   .how h4 {
     text-align: center;
-    font-size: large;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 30px;
+
+    /* text-decoration: underline; */
   }
   .subscribeTitle {
     font-family: Karla, sans-serif;

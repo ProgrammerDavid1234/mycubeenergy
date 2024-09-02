@@ -47,8 +47,12 @@
     border: 2px solid #ffffff;
     transition: background-color 0.3s ease, color 0.3s ease;
     font-weight: bold;
+    text-decoration: none;
   }
-  
+  .login{
+    color: #ffffff;
+
+  }
   .register {
     background-color: #ffffff;
     color: #000000;

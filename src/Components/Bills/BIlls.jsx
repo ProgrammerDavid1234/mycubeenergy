@@ -41,7 +41,9 @@ const Bills = () => {
           {showMenu && (
             <div className={styles.dropdownMenu}>
               <div className={styles.dropdownMenuItem} onClick={() => handleOptionClick('/topupunits')}>Top up Units</div>
-              <div className={styles.dropdownMenuItem} onClick={() => handleOptionClick('/top-up-wallet')}>Top up Wallet</div>
+              <div className={styles.dropdownMenuItem} onClick={() => handleOptionClick('/topupwallet')}>Top up Wallet</div>
+              <div className={styles.dropdownMenuItem} onClick={() => handleOptionClick('/shareunit')}>Share Units</div>
+
             </div>
           )}
         </div>

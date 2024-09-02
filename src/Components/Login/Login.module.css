@@ -6,7 +6,9 @@
     height: 100vh;
     background: #f4f4f4; /* Background color if needed */
   }
-  
+  .left img{
+    width: 40%;
+  }
   .left {
     flex: 5;
     background-color: black;

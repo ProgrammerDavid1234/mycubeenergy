@@ -1,0 +1,150 @@
+.topupunit {
+    margin-left: 250px; /* To account for the sidebar */
+    padding: 20px;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.textHeaderTopUp {
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.textHeaderTopUp h4 {
+    font-family: 'Karla', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    line-height: 35.07px;
+    text-align: left;
+}
+
+.dropdownContainer {
+    display: flex; /* Enable flexbox layout */
+    gap: 20px; /* Space between dropdowns */
+    max-width: 1040px;
+    height: 250px; /* Increased height */
+    margin-left: auto;
+    justify-content: space-between;
+    margin-right: auto;
+    background-color: #fff;
+    box-shadow: 2px 3px 14px rgba(0, 0, 0, 0.1); /* Add box shadow */
+    border-radius: 20px; /* Optional: Add border-radius for smoother edges */
+    padding: 20px;
+}
+
+.inputGroup {
+    position: relative;
+    width: 100%;
+    max-width: 370px; /* Limit maximum width to fit two side by side */
+    padding-top: 5%;
+}
+
+.dateInput {
+    width: 100%;
+    padding: 10px;
+    padding-right: 40px; /* Space for the icon */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+label {
+    font-family: Karla;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 23.38px;
+    text-align: left;
+}
+
+.vectorIcon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-80%);
+    right: 10px; /* Ensure proper alignment with the input field */
+    cursor: pointer;
+}
+
+.dropdownMenu {
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
+    overflow: hidden; /* Ensure clean edges with rounded corners */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth opening effect */
+}
+
+.dropdownMenuItem {
+    padding: 12px 20px; /* Improved padding for touch devices */
+    cursor: pointer;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+}
+
+.dropdownMenuItem:hover {
+    background-color: #f7f7f7; /* Slightly lighter hover effect */
+    color: #555; /* Darken text on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .topupunit {
+        margin-left: 0;
+        padding: 15px;
+    }
+
+    .dropdownContainer {
+        flex-direction: column; /* Stack dropdowns vertically on smaller screens */
+        gap: 10px; /* Reduce gap for vertical stacking */
+        height: auto; /* Allow height to adjust automatically */
+    }
+
+    .inputGroup {
+        width: 100%;
+        max-width: none; /* Remove max-width for smaller screens */
+    }
+}
+
+.searchButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px; /* Space above the button */
+    padding-right: 20px; /* Adjust padding to match design */
+}
+
+.searchButton {
+    padding: 10px 40px; /* Adjust padding for a balanced button */
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchButton:hover {
+    background-color: #555;
+}
+
+.resultText {
+    margin-top: 20px; /* Space above the result text */
+    padding: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Slight shadow for emphasis */
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
