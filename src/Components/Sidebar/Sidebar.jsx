@@ -22,30 +22,32 @@ const Sidebar = () => {
 
   return (
     <div className={styles.sidebarContainer}>
-      <img src={logo} alt="Logo" className={styles.logoImage} />
+      <Link to='/'>
+        <img src={logo} alt="Logo" className={styles.logoImage} />
+      </Link>
       <ul className={styles.menuList}>
         <li className={styles.menuItem}>
-          <Link 
-            to="/dashboard" 
-            className={`${styles.menuLink} ${activeTab === "/dashboard" ? styles.active : ""}`} 
+          <Link
+            to="/dashboard"
+            className={`${styles.menuLink} ${activeTab === "/dashboard" ? styles.active : ""}`}
             onClick={() => handleTabClick("/dashboard")}
           >
             <IoHomeOutline className={styles.icon} />Dashboard
           </Link>
         </li>
         <li className={styles.menuItem}>
-          <Link 
-            to="/transactions" 
-            className={`${styles.menuLink} ${activeTab === "/transactions" ? styles.active : ""}`} 
+          <Link
+            to="/transactions"
+            className={`${styles.menuLink} ${activeTab === "/transactions" ? styles.active : ""}`}
             onClick={() => handleTabClick("/transactions")}
           >
             <FaRegChartBar className={styles.icon} />Transactions
           </Link>
         </li>
         <li className={styles.menuItem}>
-          <Link 
-            to="/bills" 
-            className={`${styles.menuLink} ${activeTab === "/bills" ? styles.active : ""}`} 
+          <Link
+            to="/bills"
+            className={`${styles.menuLink} ${activeTab === "/bills" ? styles.active : ""}`}
             onClick={() => handleTabClick("/bills")}
           >
             <FaRegHeart className={styles.icon} />Bill Payment
@@ -54,18 +56,18 @@ const Sidebar = () => {
       </ul>
       <ul className={styles.bottomList}>
         <li className={styles.bottomItem}>
-          <Link 
-            to="/settings" 
-            className={`${styles.bottomLink} ${activeTab === "/settings" ? styles.active : ""}`} 
+          <Link
+            to="/settings"
+            className={`${styles.bottomLink} ${activeTab === "/settings" ? styles.active : ""}`}
             onClick={() => handleTabClick("/settings")}
           >
             <CiSettings className={styles.icon} />Settings
           </Link>
         </li>
         <li className={styles.bottomItem}>
-          <Link 
-            to="/logout" 
-            className={`${styles.bottomLink} ${activeTab === "/logout" ? styles.active : ""}`} 
+          <Link
+            to="/"
+            className={`${styles.bottomLink} ${activeTab === "/logout" ? styles.active : ""}`}
             onClick={() => handleTabClick("/logout")}
           >
             <MdOutlinePowerSettingsNew className={styles.icon} />Logout

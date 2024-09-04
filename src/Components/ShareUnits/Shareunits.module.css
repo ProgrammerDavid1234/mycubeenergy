@@ -1,0 +1,6 @@
+.shareunits{
+    margin-left: 250px; /* To account for the sidebar */
+    padding: 20px;
+    height: 100vh;
+    background-color: #f0f0f0;
+}

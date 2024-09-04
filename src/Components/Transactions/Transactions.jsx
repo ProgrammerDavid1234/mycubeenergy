@@ -1,8 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from '../Sidebar/Sidebar';
-import styles from './Transactions.module.css'; // Import module CSS
+import styles from './Transactions.module.css';
 
 const Transactions = () => {
+  const [transactions, setTransactions] = useState([]);
+  const [fromDate, setFromDate] = useState('');
+  const [toDate, setToDate] = useState('');
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  // Simulate fetching transactions on component mount
+  // This could be replaced with a real API call when needed
+  const fetchTransactions = () => {
+    // Simulated data
+    const simulatedTransactions = [
+      {
+        id: 1,
+        billerName: 'Electric Co.',
+        amount: '$100',
+        narration: 'Monthly bill',
+        date: '2024-08-01',
+      },
+      {
+        id: 2,
+        billerName: 'Water Supply',
+        amount: '$50',
+        narration: 'Quarterly bill',
+        date: '2024-08-15',
+      },
+    ];
+    setTransactions(simulatedTransactions);
+  };
+
+  // Simulate a search function
+  const handleSearch = () => {
+    // For demonstration, we'll use the same data for search
+    fetchTransactions();
+
+    // Handle search filtering if needed
+    // Here we are just using the simulated data without filtering
+  };
+
   return (
     <div>
       <Sidebar />
@@ -12,27 +50,43 @@ const Transactions = () => {
         </div>
         <div className={styles.inputContainer}>
           <div className={styles.inputGroup}>
+            <label htmlFor="email" className={styles.inputLabel}>Email</label>
+            <input
+              type="email"
+              id="email"
+              className={styles.dateInput}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className={styles.inputGroup}>
             <label htmlFor="from-date" className={styles.inputLabel}>From Date</label>
-            <input type="date" id="from-date" className={styles.dateInput} />
+            <input
+              type="date"
+              id="from-date"
+              className={styles.dateInput}
+              value={fromDate}
+              onChange={(e) => setFromDate(e.target.value)}
+            />
           </div>
           <div className={styles.inputGroup}>
             <label htmlFor="end-date" className={styles.inputLabel}>To Date</label>
-            <input type="date" id="end-date" className={styles.dateInput} />
+            <input
+              type="date"
+              id="end-date"
+              className={styles.dateInput}
+              value={toDate}
+              onChange={(e) => setToDate(e.target.value)}
+            />
           </div>
         </div>
         <div className={styles.searchButtonContainer}>
-          <button className={styles.searchButton}>Search</button>
+          <button className={styles.searchButton} onClick={handleSearch}>
+            Search
+          </button>
         </div>
 
-        <div className={styles.orText}>
-          <h5>-OR-</h5>
-        </div>
-        <div className={styles.inputContainer}>
-          <div className={styles.inputGroup}>
-            <label htmlFor="ref-no" className={styles.inputLabel}>Ref. No</label>
-            <input type="text" id="ref-no" className={styles.dateInput} />
-          </div>
-        </div>
+        {error && <p className={styles.error}>{error}</p>}
 
         <div className={styles.transactions}>
           <div className={styles.searchHeader}>
@@ -48,30 +102,20 @@ const Transactions = () => {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Company A</td>
-                <td>NGN 1,000</td>
-                <td>Monthly Subscription</td>
-                <td>2024-08-01</td>
-              </tr>
-              <tr>
-                <td>Company B</td>
-                <td>NGN 2,500</td>
-                <td>Utility Payment</td>
-                <td>2024-08-02</td>
-              </tr>
-              <tr>
-                <td>Company C</td>
-                <td>NGN 5,000</td>
-                <td>Service Fee</td>
-                <td>2024-08-05</td>
-              </tr>
-              <tr>
-                <td>Company D</td>
-                <td>NGN 7,500</td>
-                <td>Product Purchase</td>
-                <td>2024-08-10</td>
-              </tr>
+              {transactions.length > 0 ? (
+                transactions.map((transaction) => (
+                  <tr key={transaction.id}>
+                    <td>{transaction.billerName}</td>
+                    <td>{transaction.amount}</td>
+                    <td>{transaction.narration}</td>
+                    <td>{transaction.date}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="4">No transactions found</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

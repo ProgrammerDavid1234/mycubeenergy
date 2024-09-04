@@ -25,12 +25,10 @@
     margin-top: 20px;
     width: 80%;
     max-width: 740px;
-    margin-left: auto;
-    margin-right: auto; /* Centered horizontally */
     background-color: #fff; /* Set the background color to white */
     box-shadow: 2px 3px 14px rgba(0, 0, 0, 0.1); /* Add box shadow */
     border-radius: 20px; /* Optional: Add a border-radius for smoother edges */
-    padding: 20px; /* Adjusted padding inside the group */
+    padding: 70px; /* Adjusted padding inside the group */
   }
   
   .dateInput {
@@ -45,10 +43,12 @@
   .vectorIcon {
     position: absolute;
     top: 50%;
-    right: 23px; /* Ensure proper alignment with the input field */
+    right: 80px; /* Ensure proper alignment with the input field */
     transform: translateY(-50%);
     cursor: pointer;
+    height: 20px;
   }
+
   
   .dropdownMenu {
     position: absolute;
