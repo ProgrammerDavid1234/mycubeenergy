@@ -91,12 +91,7 @@ const Login = () => {
                         </div>
                     </div>
 
-                    <div className={styles.help}>
-                        <div className="d-flex">
-                            <p>help@premium.com</p>
-                            <p>(+243)-703-3116-320</p>
-                        </div>
-                    </div>
+
                 </form>
             </div>
         </div>
