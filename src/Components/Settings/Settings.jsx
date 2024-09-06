@@ -61,6 +61,10 @@ const Settings = () => {
             console.error('Error:', err);
         }
     };
+    const handleChangePassword = () => {
+        // Logic for changing the password (could open a modal or navigate to a password change page)
+        alert("Change password functionality triggered");
+    };
 
     const handleDeactivateAccount = async () => {
         try {
@@ -76,6 +80,7 @@ const Settings = () => {
             setError('Failed to deactivate account.');
             console.error('Error:', err);
         }
+
     };
 
     return (
@@ -183,6 +188,7 @@ const Settings = () => {
                                 <p>{formValues.password} (Hidden for your security)</p>
                             )}
                         </div>
+
                     </div>
                     <div className={styles.generalcolumn}>
                         <h4 className={styles.label}>Telephone</h4>
@@ -210,13 +216,18 @@ const Settings = () => {
                             <p>{formValues.zipcode}</p>
                         )}
                     </div>
+                    <button className={styles.changePasswordButton} onClick={handleChangePassword}>
+                        Change Password
+                    </button>
                 </div>
+
                 {isEditing && (
-                    <div className={styles.searchButtonContainer}>
-                        <button className={styles.searchButton} onClick={handleSaveChanges}>
-                            Save Changes
+                    <div className={styles.changePasswordButtonContainer}>
+                        <button className={styles.changePasswordButton} onClick={handleChangePassword}>
+                            Change Password
                         </button>
                     </div>
+
                 )}
                 {success && <p className={styles.success}>{success}</p>}
                 {error && <p className={styles.error}>{error}</p>}

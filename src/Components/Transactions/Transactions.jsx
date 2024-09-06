@@ -50,7 +50,7 @@ const Transactions = () => {
         </div>
         <div className={styles.inputContainer}>
           <div className={styles.inputGroup}>
-            <label htmlFor="email" className={styles.inputLabel}>Email</label>
+            <label htmlFor="email" className={styles.inputLabel}>Reference Number</label>
             <input
               type="email"
               id="email"
