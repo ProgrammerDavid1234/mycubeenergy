@@ -1,11 +1,10 @@
-/* Footer.module.css */
-
 /* Footer container styles */
 .footerContainer {
-  background-color: black;
-  color: white;
-  padding: 40px 20px;
+  background-color: #0d0d0d;
+  color: #f1f1f1;
+  padding: 60px 30px;
   margin-top: 100px;
+  font-family: 'Arial', sans-serif;
 }
 
 /* Container for the sections in the footer */
@@ -13,7 +12,9 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* Individual section styling */
@@ -23,62 +24,76 @@
   margin: 10px 0;
 }
 
+
+/* Align the logo and text */
+.logoAndInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Aligns the content to the left */
+}
+
 /* Header styling within footer sections */
 .footerSectionTitle {
-  margin-bottom: 10px;
-  font-size: 18px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: #f8f8f8;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.footerSectionTitle img{
+  width: 200px;
+  height: 200px;
 }
 
 /* Paragraphs and links within footer sections */
 .footerText,
 .footerLink {
-  margin: 5px 0;
-  color: white;
+  margin: 8px 0;
+  color: #bfbfbf;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 /* Link hover effect */
 .footerLink:hover {
+  color: #ffffff;
   text-decoration: underline;
-}
-
-/* Subscribe section styling */
-.subscribeSection {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-/* Input field styling in the subscribe section */
-.subscribeInput {
-  margin-right: 10px;
-  padding: 5px;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 10px;
 }
 
 /* Email and phone link styling */
 .contactInfo {
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
+  color: #f8f8f8;
+  font-size: 16px;
+  font-weight: 500;
 }
 
-/* Unordered list styling */
+.contactInfo:hover {
+  color: #00bfa5; /* Change color on hover for email/phone */
+}
+
+/* Logo image styling */
+.footerLogo {
+  max-width: 120px; /* Adjust as needed */
+  margin-bottom: 15px;
+}
+
+/* Footer list styling */
 .footerList {
   list-style: none;
   padding: 0;
 }
 
-/* List item styling */
 .footerListItem {
-  margin: 5px 0;
+  margin: 10px 0;
+  font-size: 15px;
 }
 
-/* Logo image styling */
-.footerLogo {
-  max-width: 50%; /* Adjust as needed */
-  margin-top: 10px;
-  margin-right: 10px;
+/* Responsive design */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+  }
 }

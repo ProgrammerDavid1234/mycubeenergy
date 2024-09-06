@@ -1,156 +1,160 @@
 /* Regular Navbar for larger screens */
 .navbar {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 50px;
+  position: relative;
+  background-color: #000000;
+}
+
+.logo {
+  width: 150px;
+}
+
+/* Navbar Links */
+.navLinks {
+  list-style-type: none;
+  display: flex;
+  gap: 30px;
+}
+
+.navLink {
+  color: #ffffff;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #f0f0f0;
+}
+
+/* Auth Buttons */
+.authButtons {
+  display: flex;
+  gap: 15px;
+  color: #e0e0e0;
+}
+
+.authButton {
+  cursor: pointer;
+  padding: 8px 20px;
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login {
+  color: #ffffff;
+}
+
+.register {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.authButton:hover {
+  background-color: #596470;
+  color: #ffffff;
+}
+
+.register:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Hamburger Menu Button and Mobile Menu for smaller screens */
+@media (max-width: 800px) {
+  /* Hide Regular Navbar */
+  .navbar {
+    display: none;
+  }
+
+  /* Hamburger Menu Button */
+  .hamburger {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 24px;
+    color: #ffffff; /* White color for the hamburger icon */
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 1100; /* Ensure it's above other elements */
+  }
+
+  /* Mobile Menu */
+  .mobileMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #000000; /* Black background */
+    color: #ffffff;
+    padding: 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 50px;
-    position: relative;
-    background-color: #000000;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+    transform: translateX(100%); /* Initially hide the menu off-screen */
+    transition: transform 0.3s ease-in-out;
   }
-  
-  .logo {
-    width: 150px;
+
+  /* Show the menu when active */
+  .mobileMenu.active {
+    transform: translateX(0); /* Slide in the menu when active */
   }
-  
-  /* Navbar Links */
-  .navLinks {
+
+  /* Close Button */
+  .closeButton {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  /* Mobile Menu Links */
+  .mobileMenu ul {
     list-style-type: none;
+    padding: 0;
     display: flex;
-    gap: 30px;
+    flex-direction: column;
+    gap: 20px;
   }
-  
-  .navLink {
+
+  .mobileMenu li {
+    margin-bottom: 15px;
+  }
+
+  .mobileMenu a {
     color: #ffffff;
     font-weight: bold;
-    transition: color 0.3s ease;
     text-decoration: none;
   }
-  
-  .navLink:hover {
+
+  .mobileMenu a:hover {
     color: #f0f0f0;
   }
-  
-  /* Auth Buttons */
-  .authButtons {
-    display: flex;
-    gap: 15px;
-    color: #e0e0e0;
-  }
-  
-  .authButton {
-    cursor: pointer;
-    padding: 8px 20px;
-    background-color: transparent;
-    border: 2px solid #ffffff;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  .login{
-    color: #ffffff;
 
-  }
   .register {
-    background-color: #ffffff;
-    color: #000000;
-  }
-  
-  .authButton:hover {
-    background-color: #596470;
+    background-color: #000000;
     color: #ffffff;
   }
-  
-  .register:hover {
-    background-color: #333333;
-    color: #ffffff;
+}
+
+/* Hide Mobile Menu on larger screens */
+@media (min-width: 801px) {
+  .hamburger, .mobileMenu {
+    display: none;
   }
-  
-  /* Hamburger Menu Button and Mobile Menu for smaller screens */
-  @media (max-width: 800px) {
-    /* Hide Regular Navbar */
-    .navbar {
-      display: none;
-    }
-  
-    /* Hamburger Menu Button */
-    .hamburger {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-      font-size: 24px;
-      color: #ffffff; /* White color for the hamburger icon */
-    }
-  
-    /* Mobile Menu */
-    .mobileMenu {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 250px;
-      height: 100vh;
-      background-color: #000000; /* Black background */
-      color: #ffffff;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      z-index: 1000;
-      transform: translateX(100%); /* Initially hide the menu off-screen */
-      transition: transform 0.3s ease-in-out;
-    }
-  
-    /* Show the menu when active */
-    .mobileMenu.active {
-      transform: translateX(0); /* Slide in the menu when active */
-    }
-  
-    /* Close Button */
-    .closeButton {
-      background: none;
-      border: none;
-      color: #ffffff;
-      font-size: 24px;
-      cursor: pointer;
-      align-self: flex-end;
-    }
-  
-    /* Mobile Menu Links */
-    .mobileMenu ul {
-      list-style-type: none;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-  
-    .mobileMenu li {
-      margin-bottom: 15px;
-    }
-  
-    .mobileMenu a {
-      color: #ffffff;
-      font-weight: bold;
-      text-decoration: none;
-    }
-  
-    .mobileMenu a:hover {
-      color: #f0f0f0;
-    }
-  
-    .register {
-      background-color: #000000;
-      color: #ffffff;
-    }
-  }
-  
-  /* Hide Mobile Menu on larger screens */
-  @media (min-width: 801px) {
-    .hamburger, .mobileMenu {
-      display: none;
-    }
-  }
-  
+}

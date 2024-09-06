@@ -24,7 +24,7 @@
     position: relative;
     margin-top: 20px;
     width: 80%;
-    max-width: 740px;
+    max-width: 1040px;
     background-color: #fff; /* Set the background color to white */
     box-shadow: 2px 3px 14px rgba(0, 0, 0, 0.1); /* Add box shadow */
     border-radius: 20px; /* Optional: Add a border-radius for smoother edges */
@@ -63,12 +63,14 @@
     display: flex;
     flex-direction: column;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for elevation */
-    overflow: hidden; /* Ensure clean edges with rounded corners */
+    overflow-y: auto; /* Allow scrolling if content exceeds max height */
     transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth opening effect */
+    max-height: 220px; /* Set a maximum height */
   }
   
+  
   .dropdownMenuItem {
-    padding: 12px 20px; /* Improved padding for touch devices */
+    padding: 10px 10px; /* Improved padding for touch devices */
     cursor: pointer;
     text-align: center;
     color: #333;
@@ -91,6 +93,9 @@
     .inputGroup {
       width: 90%;
       max-width: 100%;
+    }
+    .dropdownMenuItem {
+      padding: 12px 20px; /* Improved padding for touch devices */
     }
   }
   
