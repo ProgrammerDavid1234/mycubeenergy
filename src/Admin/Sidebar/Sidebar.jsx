@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styles from './Sidebar.module.css'; // Import CSS Module
 import logo from '../../Components/Assets/logo.png';
 import { IoHomeOutline } from "react-icons/io5";
-import { FaRegChartBar } from "react-icons/fa6";
+import { FaCircleChevronDown } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import { CiSettings } from "react-icons/ci";
 import { MdOutlinePowerSettingsNew } from "react-icons/md";
+import { FaChartLine } from "react-icons/fa6";
 import { Link, useLocation } from 'react-router-dom';
 
 const Sidebar = () => {
@@ -28,7 +29,7 @@ const Sidebar = () => {
       <ul className={styles.menuList}>
         <li className={styles.menuItem}>
           <Link
-            to="/dashboard"
+            to="/admin_dashboard"
             className={`${styles.menuLink} ${activeTab === "/dashboard" ? styles.active : ""}`}
             onClick={() => handleTabClick("/dashboard")}
           >
@@ -37,20 +38,29 @@ const Sidebar = () => {
         </li>
         <li className={styles.menuItem}>
           <Link
-            to="/transactions"
-            className={`${styles.menuLink} ${activeTab === "/transactions" ? styles.active : ""}`}
-            onClick={() => handleTabClick("/transactions")}
+            to="/admin_order"
+            className={`${styles.menuLink} ${activeTab === "/admin_order" ? styles.active : ""}`}
+            onClick={() => handleTabClick("/admin_order")}
           >
-            <FaRegChartBar className={styles.icon} />Transactions
+            <FaChartLine className={styles.icon} />Order
           </Link>
         </li>
         <li className={styles.menuItem}>
           <Link
-            to="/bills"
-            className={`${styles.menuLink} ${activeTab === "/bills" ? styles.active : ""}`}
-            onClick={() => handleTabClick("/bills")}
+            to="/admin_billing_setup"
+            className={`${styles.menuLink} ${activeTab === "/admin_billing_setup" ? styles.active : ""}`}
+            onClick={() => handleTabClick("/admin_billing_setup")}
           >
-            <FaRegHeart className={styles.icon} />Bill Payment
+            <FaCircleChevronDown className={styles.icon} />Billing Setup
+          </Link>
+        </li>
+        <li className={styles.menuItem}>
+          <Link
+            to="/user_manager"
+            className={`${styles.menuLink} ${activeTab === "/user_manager" ? styles.active : ""}`}
+            onClick={() => handleTabClick("/user_manager")}
+          >
+            <FaCircleChevronDown className={styles.icon} />User Manager
           </Link>
         </li>
       </ul>

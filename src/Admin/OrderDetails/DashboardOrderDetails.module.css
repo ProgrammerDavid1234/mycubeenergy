@@ -1,0 +1,93 @@
+/* OrderDetails.module.css */
+
+body {
+    background-color: #f5f5f5; /* Set the background color to light grey */
+    margin: 0;
+    padding: 0;
+}
+p{
+    font-weight: 700;
+}
+
+.printing {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.firstrow {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.firstone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.secondone {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.printing img {
+    height: 30px;
+}
+
+/* General styles for OrderDetails container */
+.orderDetailsContainer {
+    width: 210mm; /* A4 width */
+    height: 100vh;
+    margin: 20px auto; /* Center the container */
+    padding: 10mm;
+    background-color: white; /* Background for the A4 container */
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header styles */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000;
+}
+
+/* Content styles */
+.content {
+    flex: 1;
+    padding: 10mm;
+}
+
+/* Total styles */
+.total {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align items to the right */
+    margin-top: auto; /* Push total to the bottom */
+}
+
+.total h3 {
+    margin: 0; /* Adjust spacing between total labels */
+}
+
+/* Print-specific styles */
+@media print {
+    .orderDetailsContainer {
+        box-shadow: none; /* Remove shadow for print */
+        margin: 0;
+    }
+
+    /* Ensure full page is used in print */
+    body {
+        margin: 0;
+        padding: 0;
+    }
+}

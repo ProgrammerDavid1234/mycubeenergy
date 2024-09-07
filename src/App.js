@@ -1,7 +1,7 @@
 // App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './Components/Home/Home'; 
+import Home from './Components/Home/Home';
 import About from './Components/About/About';
 import Faq from './Components/FAQ/Faq';
 import Login from './Components/Login/Login';
@@ -11,7 +11,7 @@ import Transactions from './Components/Transactions/Transactions';
 import Bills from './Components/Bills/BIlls';
 import Topupunit from './Components/Topupunits/Topupunit';
 import Topupwallet from './Components/Topupwallet/Topupwallet';
-import Shareunits from './Components/ShareUnits/Shareunits'; 
+import Shareunits from './Components/ShareUnits/Shareunits';
 import Settings from './Components/Settings/Settings';
 import ResetPassword from './Components/ResetPassword/ResetPassword';
 import Otp from './Components/OTP/Otp';
@@ -19,6 +19,10 @@ import NewPassword from './Components/NewPassword/NewPassword';
 import AdminLogin from './Admin/Login/Login'
 import AdminReg from './Admin/SignUp/SignUp'
 import AdminDashboard from './Admin/Dashboard/Dashboard'
+import OrderDetails from './Admin/OrderDetails/DashboardOrderDetails'
+import Order from './Admin/Order/Order';
+import AdminOrder from './Admin/AdminOrderDetails/AdminOrderDetails'
+import AdminBillingSetup from './Admin/Billings/Billings'
 
 function App() {
   const [authData, setAuthData] = useState({ token: '', username: '' });
@@ -46,6 +50,12 @@ function App() {
           <Route path="/admin_login" element={<AdminLogin />} />
           <Route path="/admin_reg" element={<AdminReg />} />
           <Route path="/admin_dashboard" element={<AdminDashboard />} />
+          <Route path="/orderdetails" element={<OrderDetails />} />
+          <Route path="/admin_order" element={<Order />} />
+
+          <Route path="/admin_dashboard_order" element={<AdminOrder />} />
+          <Route path="/admin_billing_setup" element={<AdminBillingSetup />} />
+
 
 
 

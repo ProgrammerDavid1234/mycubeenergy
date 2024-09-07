@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import styles from './Dashboard.module.css';
 import Sidebar from '../Sidebar/Sidebar';
+import { Link } from 'react-router-dom'; // Import Link from React Router
 import arrow from '../Assets/arrow.png'
 const Dashboard = ({ authData }) => {
     const [error] = useState(null);
@@ -58,14 +59,20 @@ const Dashboard = ({ authData }) => {
                                 <td>NGN 1,000</td>
                                 <td>Monthly Subscription</td>
                                 <td>2024-08-01</td>
-                                <td><img src={arrow} alt="" /></td>
+                                <td>                                 <Link to="/orderdetails">
+                                    <img src={arrow} alt="View details" />
+                                </Link>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Company B</td>
                                 <td>NGN 2,500</td>
                                 <td>Utility Payment</td>
                                 <td>2024-08-02</td>
-                                <td><img src={arrow} alt="" /></td>
+                                <td>                                 <Link to="/orderdetails">
+                                    <img src={arrow} alt="View details" />
+                                </Link>
+                                </td>
 
                             </tr>
                             <tr>
@@ -73,7 +80,10 @@ const Dashboard = ({ authData }) => {
                                 <td>NGN 5,000</td>
                                 <td>Service Fee</td>
                                 <td>2024-08-05</td>
-                                <td><img src={arrow} alt="" /></td>
+                                <td>                                 <Link to="/orderdetails">
+                                    <img src={arrow} alt="View details" />
+                                </Link>
+                                </td>
 
                             </tr>
                             <tr>
@@ -81,7 +91,10 @@ const Dashboard = ({ authData }) => {
                                 <td>NGN 7,500</td>
                                 <td>Product Purchase</td>
                                 <td>2024-08-10</td>
-                                <td><img src={arrow} alt="" /></td>
+                                <td>                                 <Link to="/orderdetails">
+                                    <img src={arrow} alt="View details" />
+                                </Link>
+                                </td>
 
                             </tr>
                         </tbody>
