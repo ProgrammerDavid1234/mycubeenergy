@@ -16,6 +16,9 @@ import Settings from './Components/Settings/Settings';
 import ResetPassword from './Components/ResetPassword/ResetPassword';
 import Otp from './Components/OTP/Otp';
 import NewPassword from './Components/NewPassword/NewPassword';
+import AdminLogin from './Admin/Login/Login'
+import AdminReg from './Admin/SignUp/SignUp'
+import AdminDashboard from './Admin/Dashboard/Dashboard'
 
 function App() {
   const [authData, setAuthData] = useState({ token: '', username: '' });
@@ -39,6 +42,14 @@ function App() {
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/otp" element={<Otp />} />
           <Route path="/newpassword" element={<NewPassword />} />
+          {/*Admin Panel*/}
+          <Route path="/admin_login" element={<AdminLogin />} />
+          <Route path="/admin_reg" element={<AdminReg />} />
+          <Route path="/admin_dashboard" element={<AdminDashboard />} />
+
+
+
+
         </Routes>
       </div>
     </Router>

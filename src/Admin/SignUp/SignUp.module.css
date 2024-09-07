@@ -1,0 +1,187 @@
+/* Container for rows of input fields */
+.inputRow {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping of fields if necessary */
+    gap: 10px; /* Space between fields */
+}
+
+/* Each input field takes up half of the container’s width */
+.inputWrapper,
+.passwordWrapper {
+    flex: 1 1 48%; /* Adjust width of input fields */
+    margin-bottom: 10px;
+}
+
+/* Ensure that labels and inputs are displayed properly */
+.inputWrapper label,
+.passwordWrapper label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Adjust width and margin to ensure proper spacing and alignment */
+.inputField,
+.passwordField {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* To maintain consistent styling */
+input {
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: #fff;
+    font-size: 14px;
+}
+
+/* Style placeholder text */
+input::placeholder {
+    color: #aaa;
+}
+
+/* Sign-up container styling */
+.signUpContainer {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.leftSection {
+    flex: 5;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Vertically center the image */
+}
+
+.leftSection img {
+    width: 40%;
+}
+
+.rightSection {
+    flex: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px; /* Adjust width as needed */
+    margin: auto;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.welcome {
+    width: 100%;
+    text-align: center;
+}
+
+.welcome h2 {
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.line {
+    display: block;
+    border-bottom: 3px solid #333;
+    width: 50px;
+    margin: 10px auto;
+}
+
+.submitButton {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.submitButton input {
+    color: #fff;
+    background-color: #333;
+    padding: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.submitButton input:hover {
+    background-color: #555;
+}
+
+.accountLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.accountLink p {
+    color: #333;
+    font-size: 14px;
+}
+
+.accountLink a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.accountLink a:hover {
+    text-decoration: underline;
+}
+
+.errorMessage,
+.successMessage {
+    text-align: center;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.errorMessage {
+    color: #d9534f; /* Default error color */
+}
+
+.successMessage {
+    color: #5bc0de; /* Default success color */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .signUpContainer {
+        flex-direction: column;
+    }
+
+    .leftSection {
+        display: none; /* Hide the left section on small screens */
+    }
+
+    .rightSection {
+        flex: 1;
+        padding: 1rem;
+    }
+
+    .form {
+        max-width: 100%;
+        margin: auto;
+    }
+}

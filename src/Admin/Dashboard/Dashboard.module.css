@@ -1,0 +1,186 @@
+/* Global styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+/* Dashboard container */
+.dashboardContainer {
+    margin-left: 250px; /* To account for the fixed sidebar width */
+    padding: 40px;
+    background-color: #f5f5f5; /* Light background for contrast */
+}
+
+/* Header container inside the dashboard */
+.dashboardHeader {
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+/* Header styling */
+.dashboardHeader h4 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Paragraph styling */
+.dashboardHeader p {
+    font-size: 18px;
+    color: #666;
+}
+
+/* Card container styling */
+.dashboardCards {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+/* Card styling */
+.dashboardCard {
+    width: 30%;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.dashboardCard:hover {
+    transform: translateY(-10px); /* Slight lift on hover for a sleek effect */
+}
+
+/* Card headings */
+.dashboardCard h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+/* Card content */
+.dashboardCard p {
+    font-size: 28px;
+    color: #007bff;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* Flowchart placeholder styling */
+.flowchartPlaceholder {
+    width: 100%;
+    height: 150px;
+    background-color: #f0f0f0;
+    border: 1px dashed #ccc;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-size: 16px;
+}
+
+/* Transactions section styling */
+.transactionsSection {
+    margin-top: 60px;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* Transactions Header */
+.transactionsHeader h4 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Transactions table styling */
+.transactionsTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactionsTable thead th {
+    padding: 15px;
+    color: #666;
+    text-align: left;
+    font-size: 16px;
+    border-bottom: 2px solid #ddd;
+}
+
+.transactionsTable tbody td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.transactionsTable tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.transactionsTable tbody td img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.transactionsTable tbody tr:hover td {
+    color: #007bff;
+    background-color: #f1f1f1;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .dashboardContainer {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .dashboardHeader {
+        padding: 20px;
+        text-align: left;
+    }
+
+    .dashboardHeader h4 {
+        font-size: 22px;
+    }
+
+    .dashboardCards {
+        flex-direction: column;
+    }
+
+    .dashboardCard {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .transactionsSection {
+        padding: 20px;
+    }
+
+    .transactionsHeader h4 {
+        font-size: 22px;
+    }
+
+    .transactionsTable thead th,
+    .transactionsTable tbody td {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
