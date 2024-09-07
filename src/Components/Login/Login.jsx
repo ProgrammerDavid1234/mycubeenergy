@@ -1,3 +1,4 @@
+// Login.js
 import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -22,9 +23,8 @@ const Login = () => {
                 password,
             });
 
-            // Handle successful response
             if (response.status === 200) {
-                // Navigate to the dashboard without storing any data
+                // Navigate to the dashboard on successful login
                 navigate('/dashboard');
             } else {
                 setError('Login failed. Please check your credentials and try again.');
@@ -39,7 +39,9 @@ const Login = () => {
 
     return (
         <div className={styles.loginContainer}>
-            <div className={styles.left}><img src={logo} alt="Logo" /></div>
+            <div className={styles.left}>
+                <img src={logo} alt="Logo" />
+            </div>
             <div className={styles.right}>
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.inputContainer}>
@@ -90,8 +92,6 @@ const Login = () => {
                             <p>Don't have an account? <NavLink to='/signup'>Create Account</NavLink></p>
                         </div>
                     </div>
-
-
                 </form>
             </div>
         </div>

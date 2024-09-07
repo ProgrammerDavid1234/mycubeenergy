@@ -13,22 +13,14 @@ const Footer = () => {
             <h3 className={styles.footerSectionTitle}><img src={logo} alt="" /></h3>
 
             <div>
-              <p className={styles.footerText}>
-                Funding freemium long tail hypotheses first mover advantage assets ownership
-              </p>
+      
               <a href="mailto:agensi@mail.com" className={styles.contactInfo}>agensi@mail.com</a>
               <a href="tel:+1234567890" className={styles.contactInfo}>+ 12 3456 7890</a>
             </div>
           {/* </div> */}
         </div>
 
-        <div className={styles.footerSection}>
-          <h3 className={styles.footerSectionTitle}>Services</h3>
-          <p className={styles.footerText}>Domains</p>
-          <p className={styles.footerText}>Premium Hosting</p>
-          <p className={styles.footerText}>Private Server</p>
-          <p className={styles.footerText}>E-mail Hosting</p>
-        </div>
+
 
         <div className={styles.footerSection}>
           <h3 className={styles.footerSectionTitle}>Support</h3>

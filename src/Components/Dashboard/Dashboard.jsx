@@ -1,16 +1,45 @@
-import React from 'react';
+// Dashboard.js
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import styles from './Dashboard.module.css';
 import Sidebar from '../Sidebar/Sidebar';
 
-const Dashboard = () => {
+const Dashboard = ({ authData }) => {
+    const [profile, setProfile] = useState({ email: '' });
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchProfile = async () => {
+            try {
+                const response = await axios.get('https://mycubeenergy.onrender.com/api/User/profile', {
+                    headers: {
+                        'accept': '*/*',
+                        'Authorization': `Bearer ${authData.token}`,
+                    },
+                });
+                if (response.status === 200) {
+                    setProfile(response.data); // Adjust if data is nested
+                } else {
+                    throw new Error(`Unexpected status code: ${response.status}`);
+                }
+            } catch (error) {
+                console.error('Error fetching profile:', error.response ? error.response.data : error.message);
+                setError(error.response ? error.response.data.message : error.message);
+            }
+        };
+
+        fetchProfile();
+    }, [authData.token]);
+
     return (
         <div>
             <Sidebar />
             <div className={styles.dashboardContainer}>
                 <div className={styles.dashboardHeader}>
                     <h4>Dashboard</h4>
-                    <p>Welcome Back Emeka!</p>
+                    <p>Welcome Back {authData.username || profile.email || 'User'}!</p>
                 </div>
+                {error && <p className={styles.error}>Error: {error}</p>}
                 <div className={styles.dashboardCards}>
                     <div className={styles.dashboardCard}>
                         <h4>Units Balance</h4>
