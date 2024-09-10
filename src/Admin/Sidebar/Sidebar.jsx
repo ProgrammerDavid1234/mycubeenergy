@@ -63,6 +63,15 @@ const Sidebar = () => {
             <FaCircleChevronDown className={styles.icon} />User Manager
           </Link>
         </li>
+        <li className={styles.menuItem}>
+          <Link
+            to="/admin_manager"
+            className={`${styles.menuLink} ${activeTab === "/admin_manager" ? styles.active : ""}`}
+            onClick={() => handleTabClick("/admin_manager")}
+          >
+            <FaCircleChevronDown className={styles.icon} />Admin Management
+          </Link>
+        </li>
       </ul>
       <ul className={styles.bottomList}>
         <li className={styles.bottomItem}>
@@ -76,9 +85,9 @@ const Sidebar = () => {
         </li>
         <li className={styles.bottomItem}>
           <Link
-            to="/"
-            className={`${styles.bottomLink} ${activeTab === "/logout" ? styles.active : ""}`}
-            onClick={() => handleTabClick("/logout")}
+            to="/admin_login"
+            className={`${styles.bottomLink} ${activeTab === "/admin_logout" ? styles.active : ""}`}
+            onClick={() => handleTabClick("/admin_login")}
           >
             <MdOutlinePowerSettingsNew className={styles.icon} />Logout
           </Link>

@@ -1,0 +1,68 @@
+/* Global styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+/* Dashboard container */
+.billingsetup {
+    margin-left: 250px; /* To account for the fixed sidebar width */
+    padding: 40px;
+    height: 100vh;
+    background-color: #f5f5f5; /* Light background for contrast */
+}
+
+/* Header container inside the dashboard */
+.billingheader {
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+/* Header styling */
+.billingheader h4 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Dropdown container styling */
+.dropdownContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Dropdown styling */
+  .dropdown {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+  }
+  .searchDate {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: -30px; /* Moves the searchDate container upwards */
+}
+  
+/* Search button styling */
+.searchButton {
+    padding: 10px 20px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    align-self: flex-end;
+}

@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.admindetailsContainer{
+    width: 210mm; /* A4 width */
+    height: 100vh;
+    margin: 20px auto; /* Center the container */
+    padding: 10mm;
+    background-color: white; /* Background for the A4 container */
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.admindetailsheader h4{
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000;
+}
+.admindetailsheader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.admindetailsheader img{
+    height: 30px;
+
+}
+.admincontentrow{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+.admincontentrow2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.admincontentrow3{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.admincontentrow4{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.actionbuttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px; /* Adds some space between the buttons */
+}
+
+.close {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 1px 5px; /* Adjust padding for a cleaner and shorter button look */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Smooth rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 15%;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.close:hover {
+    background-color: #585555; /* Slightly darker background on hover */
+}
+
+.disable {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 5px 10px; /* Reduced padding to make the button shorter */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.disable:hover {
+    background-color: #ff1a1a; /* Darken red on hover */
+}
+.close p{
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+.disable p{
+    margin-top: 5px;
+    margin-bottom: 3px;
+}

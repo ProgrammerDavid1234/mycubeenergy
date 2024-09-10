@@ -23,7 +23,11 @@ import OrderDetails from './Admin/OrderDetails/DashboardOrderDetails'
 import Order from './Admin/Order/Order';
 import AdminOrder from './Admin/AdminOrderDetails/AdminOrderDetails'
 import AdminBillingSetup from './Admin/Billings/Billings'
+import User_Manager from './Admin/UserSearch/UserSearch'
+import UserSearchDetails from './Admin/UserSearchDetails/UserSearchDetails'
 
+import Admin_Manager from './Admin/AdminManagement/AdminManagement'
+import AdminManagementDetails from './Admin/AdminManagementDetails/AdminManagementDetails';
 function App() {
   const [authData, setAuthData] = useState({ token: '', username: '' });
 
@@ -55,8 +59,12 @@ function App() {
 
           <Route path="/admin_dashboard_order" element={<AdminOrder />} />
           <Route path="/admin_billing_setup" element={<AdminBillingSetup />} />
-
-
+          
+          <Route path="/user_manager" element={<User_Manager />} />
+          <Route path="/usersearchdetails" element={<UserSearchDetails />} />
+          <Route path="/admin_manager" element={<Admin_Manager />} />
+          
+          <Route path="/adminmanagementdetails" element={<AdminManagementDetails />} />
 
 
 

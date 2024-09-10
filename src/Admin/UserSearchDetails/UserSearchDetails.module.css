@@ -1,0 +1,155 @@
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.firstone {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.firstrow{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.secondrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.thirdrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.fourthrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.fifthrow{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.fifthcolumn{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.secondone {
+    display: flex;
+    flex-direction: column;
+    text-align: right; /* Align the second column to the right */
+}
+.printing{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.printing img {
+    height: 30px;
+}
+
+/* General styles for User Details container */
+.userDetailsContainer {
+    width: 210mm;
+    height: 100vh;
+    margin: 20px auto;
+    padding: 10mm;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Header styles */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000;
+}
+
+/* Content styles */
+.content {
+    flex: 1;
+    padding: 10mm;
+}
+.actionbuttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px; /* Adds some space between the buttons */
+}
+
+.close {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 1px 5px; /* Adjust padding for a cleaner and shorter button look */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Smooth rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    width: 15%;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.close:hover {
+    background-color: #585555; /* Slightly darker background on hover */
+}
+
+.disable {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 5px 10px; /* Reduced padding to make the button shorter */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.disable:hover {
+    background-color: #ff1a1a; /* Darken red on hover */
+}
+.close p{
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+.disable p{
+    margin-top: 5px;
+    margin-bottom: 3px;
+}
+
+/* Button styles */
+/* .actions {
+
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+/* Print-specific styles */
+/* @media print {
+    .userDetailsContainer {
+        box-shadow: none;
+        margin: 0;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+} */ 
