@@ -17,7 +17,7 @@ const Navbar = () => {
         <img src={logo} alt="Logo" className={styles.logo} />
         <ul className={styles.navLinks}>
           <li><Link to="/about" className={styles.navLink}>About Us</Link></li>
-          <li><Link to="/contact" className={styles.navLink}>Contact Us</Link></li>
+          <li><Link to="/contact_us" className={styles.navLink}>Contact Us</Link></li>
           <li><Link to="/faq" className={styles.navLink}>FAQ</Link></li>
         </ul>
         <div className={styles.authButtons}>

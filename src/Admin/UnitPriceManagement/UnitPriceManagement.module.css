@@ -1,0 +1,50 @@
+/* Global styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Karla', sans-serif;
+}
+
+/* Dashboard container */
+.unitpricecontent {
+    margin-left: 250px; /* To account for the fixed sidebar width */
+    padding: 40px;
+    height: 100vh;
+    background-color: #f5f5f5; /* Light background for contrast */
+}
+.unitpriceheader{
+    margin-left: 50px;
+}
+.divcontainer{
+    margin: 50px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+.content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.actions{
+    display: flex;
+    justify-content: flex-end;
+    color: white;
+    padding: 30px;
+    cursor: pointer;
+}
+.actions h5{
+    background-color: black;
+    /* margin-top: 10px; */
+    padding: 10px;
+    border-radius: 10px;
+
+
+}
+.icons{
+    display: flex;
+    gap: 10px;
+    margin-right: 30px;
+    height: 20px;
+}

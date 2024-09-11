@@ -76,7 +76,7 @@ const Sidebar = () => {
       <ul className={styles.bottomList}>
         <li className={styles.bottomItem}>
           <Link
-            to="/settings"
+            to="/admin_settings"
             className={`${styles.bottomLink} ${activeTab === "/settings" ? styles.active : ""}`}
             onClick={() => handleTabClick("/settings")}
           >

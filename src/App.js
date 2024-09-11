@@ -28,6 +28,9 @@ import UserSearchDetails from './Admin/UserSearchDetails/UserSearchDetails'
 
 import Admin_Manager from './Admin/AdminManagement/AdminManagement'
 import AdminManagementDetails from './Admin/AdminManagementDetails/AdminManagementDetails';
+import UnitPriceManagement from './Admin/UnitPriceManagement/UnitPriceManagement';
+import Admin_Settings from './Admin/Admin_Settings/Admin_Settings';
+import ContactUs from './Components/ContactUs/ContactUs';
 function App() {
   const [authData, setAuthData] = useState({ token: '', username: '' });
 
@@ -50,6 +53,8 @@ function App() {
           <Route path="/resetpassword" element={<ResetPassword />} />
           <Route path="/otp" element={<Otp />} />
           <Route path="/newpassword" element={<NewPassword />} />
+          <Route path="/contact_us" element={<ContactUs />} />
+
           {/*Admin Panel*/}
           <Route path="/admin_login" element={<AdminLogin />} />
           <Route path="/admin_reg" element={<AdminReg />} />
@@ -65,7 +70,8 @@ function App() {
           <Route path="/admin_manager" element={<Admin_Manager />} />
           
           <Route path="/adminmanagementdetails" element={<AdminManagementDetails />} />
-
+          <Route path="/unitpricemanagement" element={<UnitPriceManagement />} />
+          <Route path="/admin_settings" element={<Admin_Settings />} />
 
 
         </Routes>
