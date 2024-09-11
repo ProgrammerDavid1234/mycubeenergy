@@ -7,7 +7,9 @@ const ContactUs = () => {
     <div>
         <Navbar />
         <div className={styles.contactus}>
-
+            <div className={styles.contactusheader}>
+                <h5>Contact Us</h5>
+            </div>
         </div>
         <Footer />
     </div>
