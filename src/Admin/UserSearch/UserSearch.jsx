@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage'; 
 import styles from './UserSearch.module.css';
 import Sidebar from '../Sidebar/Sidebar';
 import arrow from '../Assets/arrow.png';
@@ -9,14 +10,33 @@ const UserSearch = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [bearerToken, setBearerToken] = useState('');
+
+    // Fetch token from AsyncStorage when the component mounts
+    const readToken = async () => {
+        try {
+            const token = await AsyncStorage.getItem('tokens');
+            if (token !== null) {
+                setBearerToken(token);
+            }
+        } catch (error) {
+            alert('Failed to fetch the token from storage');
+        }
+    };
+
+    useEffect(() => {
+        // Fetch token on component mount
+        readToken();
+    }, []);
 
     useEffect(() => {
         const fetchUsers = async () => {
+            if (!bearerToken) return;
+
             try {
-                const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJPbG9uYWRlIiwianRpIjoiYjY2ZTY5NmMtNzE1My00NmUyLTk4YzQtOThiMzAxMTkzMjY0IiwiZXhwIjoxNzI2MDg0MjUyLCJpc3MiOiJNeUN1YmVFbmVyZ3kiLCJhdWQiOiJDdWJlVXNlcnMifQ.bA-Vw80QzyoUpORqLUWff_JSinGfwejopk9Jw53Bf_4';
                 const response = await axios.get('https://mycubeenergy.onrender.com/api/admin/Admin/users', {
                     headers: {
-                        'Authorization': `Bearer ${token}`,
+                        'Authorization': `Bearer ${bearerToken}`,
                         'accept': '*/*',
                     },
                 });
@@ -27,8 +47,9 @@ const UserSearch = () => {
                 setLoading(false);
             }
         };
+
         fetchUsers();
-    }, []);
+    }, [bearerToken]);
 
     if (loading) {
         return <p>Loading users...</p>;

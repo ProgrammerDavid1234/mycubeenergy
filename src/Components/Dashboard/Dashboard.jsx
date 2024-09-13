@@ -1,14 +1,16 @@
-// Dashboard.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import styles from './Dashboard.module.css';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import Sidebar from '../Sidebar/Sidebar';
+import styles from './Dashboard.module.css';
 
 const Dashboard = ({ authData }) => {
     const [profile, setProfile] = useState({ email: '' });
+    const [username, setUsername] = useState('');
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        // Fetch the user profile
         const fetchProfile = async () => {
             try {
                 const response = await axios.get('https://mycubeenergy.onrender.com/api/User/profile', {
@@ -18,7 +20,7 @@ const Dashboard = ({ authData }) => {
                     },
                 });
                 if (response.status === 200) {
-                    setProfile(response.data); // Adjust if data is nested
+                    setProfile(response.data);
                 } else {
                     throw new Error(`Unexpected status code: ${response.status}`);
                 }
@@ -28,7 +30,17 @@ const Dashboard = ({ authData }) => {
             }
         };
 
+        // Fetch the stored username from AsyncStorage
+        const fetchUsername = async () => {
+            const storedUsername = await AsyncStorage.getItem('username');
+            if (storedUsername) {
+                setUsername(storedUsername);
+            }
+        };
+
+        // Call both functions to fetch profile and username
         fetchProfile();
+        fetchUsername();
     }, [authData.token]);
 
     return (
@@ -37,7 +49,7 @@ const Dashboard = ({ authData }) => {
             <div className={styles.dashboardContainer}>
                 <div className={styles.dashboardHeader}>
                     <h4>Dashboard</h4>
-                    <p>Welcome Back {authData.username || profile.email || 'User'}!</p>
+                    <p>Welcome Back {username || 'User'}!</p> {/* Display the username */}
                 </div>
                 {error && <p className={styles.error}>Error: {error}</p>}
                 <div className={styles.dashboardCards}>

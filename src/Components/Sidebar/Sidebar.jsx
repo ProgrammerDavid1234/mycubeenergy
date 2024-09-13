@@ -66,7 +66,7 @@ const Sidebar = () => {
         </li>
         <li className={styles.bottomItem}>
           <Link
-            to="/"
+            to="/login"
             className={`${styles.bottomLink} ${activeTab === "/logout" ? styles.active : ""}`}
             onClick={() => handleTabClick("/logout")}
           >

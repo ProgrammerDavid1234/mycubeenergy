@@ -1,7 +1,7 @@
-// Login.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import logo from '../Assets/logo.png';
 import styles from './Login.module.css'; // Import the CSS Module
 
@@ -12,30 +12,48 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    // Check for stored token on mount
+    useEffect(() => {
+        const checkToken = async () => {
+            const token = await AsyncStorage.getItem('token');
+            if (token) {
+                navigate('/dashboard');
+            }
+        };
+        checkToken();
+    }, [navigate]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         setLoading(true);
-
+    
         try {
             const response = await axios.post('https://mycubeenergy.onrender.com/api/User/Auth/login', {
                 username,
                 password,
             });
-
+    
             if (response.status === 200) {
+                // Store the token and username using AsyncStorage
+                await AsyncStorage.setItem('token', response.data.token);
+                await AsyncStorage.setItem('username', username);
+    
                 // Navigate to the dashboard on successful login
                 navigate('/dashboard');
+            } else if (response.status === 401) {
+                setError('Invalid username or password.');
             } else {
-                setError('Login failed. Please check your credentials and try again.');
+                setError('Login failed. Please try again later.');
             }
         } catch (error) {
             console.error('Error:', error.response ? error.response.data : error.message);
-            setError('Login failed. Please check your credentials and try again.');
+            setError('Login failed. Please try again later.');
         } finally {
             setLoading(false);
         }
     };
+    
 
     return (
         <div className={styles.loginContainer}>
