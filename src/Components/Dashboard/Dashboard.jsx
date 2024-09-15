@@ -1,35 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Sidebar from '../Sidebar/Sidebar';
 import styles from './Dashboard.module.css';
 
-const Dashboard = ({ authData }) => {
-    const [profile, setProfile] = useState({ email: '' });
+const Dashboard = () => {
     const [username, setUsername] = useState('');
-    const [error, setError] = useState(null);
 
     useEffect(() => {
-        // Fetch the user profile
-        const fetchProfile = async () => {
-            try {
-                const response = await axios.get('https://mycubeenergy.onrender.com/api/User/profile', {
-                    headers: {
-                        'accept': '*/*',
-                        'Authorization': `Bearer ${authData.token}`,
-                    },
-                });
-                if (response.status === 200) {
-                    setProfile(response.data);
-                } else {
-                    throw new Error(`Unexpected status code: ${response.status}`);
-                }
-            } catch (error) {
-                console.error('Error fetching profile:', error.response ? error.response.data : error.message);
-                setError(error.response ? error.response.data.message : error.message);
-            }
-        };
-
         // Fetch the stored username from AsyncStorage
         const fetchUsername = async () => {
             const storedUsername = await AsyncStorage.getItem('username');
@@ -38,10 +15,8 @@ const Dashboard = ({ authData }) => {
             }
         };
 
-        // Call both functions to fetch profile and username
-        fetchProfile();
         fetchUsername();
-    }, [authData.token]);
+    }, []);
 
     return (
         <div>
@@ -51,7 +26,7 @@ const Dashboard = ({ authData }) => {
                     <h4>Dashboard</h4>
                     <p>Welcome Back {username || 'User'}!</p> {/* Display the username */}
                 </div>
-                {error && <p className={styles.error}>Error: {error}</p>}
+                
                 <div className={styles.dashboardCards}>
                     <div className={styles.dashboardCard}>
                         <h4>Units Balance</h4>
@@ -75,6 +50,7 @@ const Dashboard = ({ authData }) => {
                         </div>
                     </div>
                 </div>
+                
                 <div className={styles.transactionsSection}>
                     <div className={styles.transactionsHeader}>
                         <h4>Transactions</h4>

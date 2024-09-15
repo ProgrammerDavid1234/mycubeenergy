@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import logo from '../Assets/logo.png';
 import styles from './Login.module.css'; // Import the CSS Module
 
@@ -12,16 +11,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    // Check for stored token on mount
-    useEffect(() => {
-        const checkToken = async () => {
-            const token = await AsyncStorage.getItem('token');
-            if (token) {
-                navigate('/dashboard');
-            }
-        };
-        checkToken();
-    }, [navigate]);
+    // Remove token check from useEffect to avoid automatic redirection
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -35,9 +25,9 @@ const Login = () => {
             });
     
             if (response.status === 200) {
-                // Store the token and username using AsyncStorage
-                await AsyncStorage.setItem('token', response.data.token);
-                await AsyncStorage.setItem('username', username);
+                // Store the token and username using localStorage
+                localStorage.setItem('token', response.data.token);
+                localStorage.setItem('username', username);
     
                 // Navigate to the dashboard on successful login
                 navigate('/dashboard');
@@ -54,7 +44,6 @@ const Login = () => {
         }
     };
     
-
     return (
         <div className={styles.loginContainer}>
             <div className={styles.left}>
