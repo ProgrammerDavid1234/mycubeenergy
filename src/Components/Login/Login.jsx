@@ -11,8 +11,6 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    // Remove token check from useEffect to avoid automatic redirection
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');

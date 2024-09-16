@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Sidebar from '../Sidebar/Sidebar';
 import styles from './Settings.module.css';
@@ -7,19 +7,59 @@ import edit from './edit.png';
 const Settings = () => {
     const [isEditing, setIsEditing] = useState(false);
     const [formValues, setFormValues] = useState({
-        username: 'JohnDoe123',
-        fullName: 'John Doe',
-        address: '123 Main Street',
-        city: 'New York',
-        state: 'NY',
-        country: 'USA',
-        email: 'johndoe@example.com',
+        username: '',
+        fullName: '',
+        address: '',
+        city: '',
+        state: '',
+        country: '',
+        email: '',
         password: '********',
-        telephone: '+1 555 123 4567',
-        zipcode: '10001',
+        telephone: '',
+        zipcode: '',
+        userId: null, // Add userId to formValues
     });
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
+
+    // Function to fetch user profile
+    const fetchUserProfile = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                throw new Error('No token found');
+            }
+
+            const response = await axios.get('https://mycubeenergy.onrender.com/api/User/profile?email=programmerdavid007%40gmail.com', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'accept': '*/*',
+                },
+            });
+
+            const { user } = response.data;
+            setFormValues({
+                username: user.username,
+                fullName: user.fullname,
+                address: user.address,
+                city: user.city,
+                state: user.state,
+                country: user.country,
+                email: user.email,
+                password: '********', // Keep password hidden
+                telephone: user.telephone,
+                zipcode: user.zipcode,
+                userId: user.userId, // Make sure this line is included
+            });
+        } catch (err) {
+            setError('Failed to fetch user profile.');
+            console.error('Error:', err.response ? err.response.data : err.message);
+        }
+    };
+
+    useEffect(() => {
+        fetchUserProfile();
+    }, []);
 
     const handleEditClick = () => {
         setIsEditing(!isEditing);
@@ -33,54 +73,63 @@ const Settings = () => {
         }));
     };
 
-    const handleSaveChanges = async () => {
-        try {
-            const response = await axios.put(
-                'https://mycubeenergy.onrender.com/api/User/editProfile',
-                {
-                    userId: 0, // Replace with actual user ID
-                    fullname: formValues.fullName,
-                    address: formValues.address,
-                    telephone: formValues.telephone,
-                    email: formValues.email,
-                    city: formValues.city,
-                    state: formValues.state,
-                    zipcode: formValues.zipcode
-                },
-                {
-                    headers: {
-                        'accept': '*/*',
-                        'Content-Type': 'application/json'
-                    }
-                }
-            );
-            setSuccess('Profile updated successfully.');
-            setIsEditing(false); // Exit edit mode
-        } catch (err) {
-            setError('Failed to update profile.');
-            console.error('Error:', err);
-        }
-    };
     const handleChangePassword = () => {
         // Logic for changing the password (could open a modal or navigate to a password change page)
         alert("Change password functionality triggered");
     };
 
+    const handleSaveChanges = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                throw new Error('No token found');
+            }
+
+            await axios.put('https://mycubeenergy.onrender.com/api/User/editProfile', formValues, {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'accept': '*/*',
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            setSuccess('Profile updated successfully.');
+            setIsEditing(false);
+        } catch (err) {
+            setError('Failed to update profile.');
+            console.error('Error:', err.response ? err.response.data : err.message);
+        }
+    };
+
     const handleDeactivateAccount = async () => {
         try {
+            const token = localStorage.getItem('token');
+            const userId = formValues.userId; // Ensure userId is in formValues
+
+            if (!token) {
+                throw new Error('No token found');
+            }
+            if (!userId) {
+                throw new Error('No userId found');
+            }
+
             await axios.delete('https://mycubeenergy.onrender.com/api/User/delete-account', {
                 headers: {
-                    'accept': '*/*'
-                }
+                    'Authorization': `Bearer ${token}`,
+                    'accept': '*/*',
+                },
+                params: {
+                    userId: userId,
+                },
             });
+
             setSuccess('Account deactivated successfully.');
             localStorage.clear(); // Clear all local storage
             window.location.href = '/login'; // Redirect to login page
         } catch (err) {
             setError('Failed to deactivate account.');
-            console.error('Error:', err);
+            console.error('Error:', err.response ? err.response.data : err.message);
         }
-
     };
 
     return (
@@ -177,18 +226,8 @@ const Settings = () => {
                         </div>
                         <div className={styles.secondcolumn}>
                             <h4 className={styles.label}>Password</h4>
-                            {isEditing ? (
-                                <input
-                                    type="password"
-                                    name="password"
-                                    value={formValues.password}
-                                    onChange={handleChange}
-                                />
-                            ) : (
-                                <p>{formValues.password} (Hidden for your security)</p>
-                            )}
+                            <p>{formValues.password} (Hidden for your security)</p>
                         </div>
-
                     </div>
                     <div className={styles.generalcolumn}>
                         <h4 className={styles.label}>Telephone</h4>
@@ -216,19 +255,16 @@ const Settings = () => {
                             <p>{formValues.zipcode}</p>
                         )}
                     </div>
+                    {isEditing && (
+                        <button className={styles.saveChangesButton} onClick={handleSaveChanges}>
+                            Save Changes
+                        </button>
+                    )}
                     <button className={styles.changePasswordButton} onClick={handleChangePassword}>
                         Change Password
                     </button>
                 </div>
 
-                {isEditing && (
-                    <div className={styles.changePasswordButtonContainer}>
-                        <button className={styles.changePasswordButton} onClick={handleChangePassword}>
-                            Change Password
-                        </button>
-                    </div>
-
-                )}
                 {success && <p className={styles.success}>{success}</p>}
                 {error && <p className={styles.error}>{error}</p>}
                 <div className={styles.delete}>
