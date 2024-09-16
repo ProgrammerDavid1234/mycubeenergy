@@ -17,7 +17,6 @@ const Settings = () => {
         password: '********',
         telephone: '',
         zipcode: '',
-        userId: null, // Add userId to formValues
     });
     const [error, setError] = useState('');
     const [success, setSuccess] = useState('');
@@ -30,26 +29,29 @@ const Settings = () => {
                 throw new Error('No token found');
             }
 
-            const response = await axios.get('https://mycubeenergy.onrender.com/api/User/profile?email=programmerdavid007%40gmail.com', {
+            // Fetch user profile
+            const response = await axios.get('https://mycubeenergy.onrender.com/api/User/profile', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'accept': '*/*',
+                },
+                params: {
+                    email: 'programmerdavid007@gmail.com',
                 },
             });
 
             const { user } = response.data;
             setFormValues({
-                username: user.username,
-                fullName: user.fullname,
-                address: user.address,
-                city: user.city,
-                state: user.state,
-                country: user.country,
-                email: user.email,
+                username: user.username || '',
+                fullName: user.fullname || '',
+                address: user.address || '',
+                city: user.city || '',
+                state: user.state || '',
+                country: user.country || '',
+                email: user.email || '',
                 password: '********', // Keep password hidden
-                telephone: user.telephone,
-                zipcode: user.zipcode,
-                userId: user.userId, // Make sure this line is included
+                telephone: user.telephone || '',
+                zipcode: user.zipcode || '',
             });
         } catch (err) {
             setError('Failed to fetch user profile.');
@@ -91,6 +93,10 @@ const Settings = () => {
                     'accept': '*/*',
                     'Content-Type': 'application/json',
                 },
+                params: {
+                    email: formValues.email,
+                    userId: formValues.userId,
+                },
             });
 
             setSuccess('Profile updated successfully.');
@@ -104,16 +110,16 @@ const Settings = () => {
     const handleDeactivateAccount = async () => {
         try {
             const token = localStorage.getItem('token');
-            const userId = formValues.userId; // Ensure userId is in formValues
-
+            const userId = formValues.userId; // Assuming userId is included in formValues
+    
             if (!token) {
                 throw new Error('No token found');
             }
             if (!userId) {
                 throw new Error('No userId found');
             }
-
-            await axios.delete('https://mycubeenergy.onrender.com/api/User/delete-account', {
+    
+            await axios.delete(`https://mycubeenergy.onrender.com/api/User/delete-account`, {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'accept': '*/*',
@@ -122,7 +128,7 @@ const Settings = () => {
                     userId: userId,
                 },
             });
-
+    
             setSuccess('Account deactivated successfully.');
             localStorage.clear(); // Clear all local storage
             window.location.href = '/login'; // Redirect to login page
@@ -131,6 +137,7 @@ const Settings = () => {
             console.error('Error:', err.response ? err.response.data : err.message);
         }
     };
+    
 
     return (
         <div>
