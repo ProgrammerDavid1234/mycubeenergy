@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import AsyncStorage from '@react-native-async-storage/async-storage'; 
 import styles from './UserSearch.module.css';
 import Sidebar from '../Sidebar/Sidebar';
 import arrow from '../Assets/arrow.png';
@@ -10,46 +9,27 @@ const UserSearch = () => {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [bearerToken, setBearerToken] = useState('');
-
-    // Fetch token from AsyncStorage when the component mounts
-    const readToken = async () => {
-        try {
-            const token = await AsyncStorage.getItem('tokens');
-            if (token !== null) {
-                setBearerToken(token);
-            }
-        } catch (error) {
-            alert('Failed to fetch the token from storage');
-        }
-    };
-
-    useEffect(() => {
-        // Fetch token on component mount
-        readToken();
-    }, []);
 
     useEffect(() => {
         const fetchUsers = async () => {
-            if (!bearerToken) return;
-
             try {
                 const response = await axios.get('https://mycubeenergy.onrender.com/api/admin/Admin/users', {
                     headers: {
-                        'Authorization': `Bearer ${bearerToken}`,
-                        'accept': '*/*',
+                        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJPbG9uYWRlIiwianRpIjoiZDY2M2ZkYjQtMmJjOC00MGIwLWI2NjctNDE4NTE3YTNjODg5IiwiZXhwIjoxNzI2Njk2MTM1LCJpc3MiOiJNeUN1YmVFbmVyZ3kiLCJhdWQiOiJDdWJlVXNlcnMifQ.ROisPgDg9bljk2ESa56hKtqmO0pXm474jKjAKKyD1cM`, // Replace with your actual Bearer token
                     },
                 });
+                console.log("Fetched users:", response.data); // Debugging
                 setUsers(response.data); // Adjust based on your API response structure
                 setLoading(false);
             } catch (err) {
+                console.error("Error fetching users:", err); // Debugging
                 setError('Failed to fetch users');
                 setLoading(false);
             }
         };
 
         fetchUsers();
-    }, [bearerToken]);
+    }, []);
 
     if (loading) {
         return <p>Loading users...</p>;
@@ -109,12 +89,12 @@ const UserSearch = () => {
                         <tbody>
                             {users.length > 0 ? (
                                 users.map((user) => (
-                                    <tr key={user.accountID}>
-                                        <td>{user.accountID}</td>
+                                    <tr key={user.accountId}>
+                                        <td>{user.accountId}</td>
                                         <td>{user.email}</td>
-                                        <td>{user.regDate}</td>
+                                        <td>{new Date(user.createdAt).toLocaleDateString()}</td>
                                         <td>
-                                            <Link to="/usersearchdetails">
+                                            <Link to={`/usersearchdetails/${user.email}`}>
                                                 <img src={arrow} alt="View details" />
                                             </Link>
                                         </td>

@@ -66,7 +66,7 @@ function App() {
           <Route path="/admin_billing_setup" element={<AdminBillingSetup />} />
           
           <Route path="/user_manager" element={<User_Manager />} />
-          <Route path="/usersearchdetails" element={<UserSearchDetails />} />
+          <Route path="/usersearchdetails/:email" element={<UserSearchDetails />} />
           <Route path="/admin_manager" element={<Admin_Manager />} />
           
           <Route path="/adminmanagementdetails" element={<AdminManagementDetails />} />
